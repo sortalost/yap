@@ -8,13 +8,13 @@
 </header>
 <main>
     {% for key in posts %}
-    <script>console.log({{posts['key']}});console.log({{key}})</script>
+    <script>console.log({{posts[key]}});console.log({{key}})</script>
     <hr> <!-- White horizontal line before the first section -->
     <a href="/post/{{key}}">
         <section>
-            <h2><strong>{{posts['key']['name']}}</strong></h2>
-            <p>{{posts['key']['date']}}</p>
-            <p>{{posts['key']['time']}}</p>
+            <h2><strong>{{posts[key]['name']}}</strong></h2>
+            <p>{{posts[key]['date']}}</p>
+            <p>{{posts[key]['time']}}</p>
         </section>
     </a>
     {%endfor%}
