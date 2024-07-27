@@ -8,7 +8,7 @@
 </header>
 <main>
     {% for post in posts %}
-    <script>console.log(post)</script>
+    <script>console.log({{post}});console.log({{posts}})</script>
     <hr> <!-- White horizontal line before the first section -->
     <a href="/post/{{post.num}}">
         <section>
