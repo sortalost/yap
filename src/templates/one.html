@@ -7,12 +7,13 @@
     <h1>get better lol</h1>
 </header>
 <main>
+    {% for post in posts %}
     <hr> <!-- White horizontal line before the first section -->
-    <a href="#event1">
+    <a href="/post/{{post.num}}">
         <section>
-            <h2><strong>Event 1</strong></h2>
-            <p>July 27, 2024</p>
-            <p>3:00 PM</p>
+            <h2><strong>{{post.name}}</strong></h2>
+            <p>{{post.date}}</p>
+            <p>{{post.time}}</p>
         </section>
     </a>
     <hr> <!-- White horizontal line between sections -->
