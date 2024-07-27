@@ -1,19 +1,19 @@
 from flask import Flask, render_template
-import .utils
+from .utils import *
 
 app = Flask(__name__)
 
 @app.route("/")
 def one():
-    posts=utils.getjson()
+    posts=getjson()
     return render_template("one.html",posts=posts)
 
 
 @app.route("/post/<num>")
 def post(num):
     try:
-        post = utils.getpost(num)
-    except utils.NoPost:
+        post = getpost(num)
+    except NoPost:
         return render_template("404.html")
     return render_template("post.html",name=post["name"],date=post["date"],time=post["time"],content=post["content"],img=post["img"])
 
