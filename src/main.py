@@ -13,7 +13,7 @@ def one():
 def post(num):
     try:
         post = getpost(num)
-    except NoPost:
+    except:
         return render_template("404.html")
     return render_template("post.html",name=post["name"],date=post["date"],time=post["time"],content=post["content"],img=post["img"])
 

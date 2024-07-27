@@ -1,8 +1,5 @@
 import json
 
-class NoPost(Exception):
-    raise Exception
-
 def getjson():
     with open("posts.json","r") as f:
         con = json.load(f)
@@ -10,10 +7,7 @@ def getjson():
 
 def getpost(num:str):
     con = getjson()
-    try:
-        post = con[num]
-    except KeyError:
-        raise NoPost
+    post = con[num]
     return post
 
 def addpost(name, date, time, content, img):
