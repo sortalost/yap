@@ -8,6 +8,9 @@ def one():
     posts=getjson()
     return render_template("one.html",posts=posts)
 
+@app.route("/new")
+def newpost():
+    return render_template("two.html")
 
 @app.route("/post/<num>")
 def post(num):
