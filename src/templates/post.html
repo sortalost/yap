@@ -1,0 +1,119 @@
+
+    {%block title%}{%endblock%}
+    {%block style%}
+        /* Reset some default styles */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: black;
+            color: white; /* White text for contrast */
+            font-family: Arial, sans-serif; /* Fallback font */
+            line-height: 1.4; /* Adjusted line height for tighter spacing */
+        }
+
+        .top-header {
+            text-align: center;
+            color: #888; /* Greyish text color */
+            padding: 8px; /* Reduced padding */
+            font-size: 15px; /* Adjusted font size */
+            margin-top: 20px; /* Space above the top header */
+        }
+
+        .top-header nav ul {
+            list-style-type: none; /* Remove default list styling */
+            padding: 0;
+            margin: 0;
+        }
+
+        .top-header nav ul li {
+            display: inline; /* Display list items inline */
+            margin: 0 8px; /* Further reduced space between links */
+        }
+
+        .top-header nav ul li a {
+            color: #888; /* Greyish text color for links */
+            text-decoration: none; /* Remove underline from links */
+            font-size: 15px; /* Adjusted font size for links */
+        }
+
+        .top-header nav ul li a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        header {
+            text-align: center;
+            padding: 10px; /* Reduced padding around header */
+            margin-top: 40px; /* Increased space between the top header and website name */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26.25px; /* Font size for the site name */
+        }
+
+        main {
+            padding: 10px; /* Reduced padding inside main */
+            margin: 0 60px; /* Increased indentation from left and right */
+        }
+
+        .featured-image {
+            width: 100%; /* Full-width image */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 20px; /* Space below the image */
+            border-radius: 6px; /* Rounded corners for the image */
+        }
+
+        article {
+            margin-bottom: 16px; /* Space below the article */
+            padding: 12px; /* Padding inside the article */
+            border: 1px solid transparent; /* Border for hover effect */
+            border-radius: 6px; /* Slightly smaller rounded corners for the article */
+            background-color: #1a1a1a; /* Background color of the article */
+        }
+
+        h2 {
+            margin-bottom: 4px; /* Space below each heading */
+            font-size: 24px; /* Larger font size for article title */
+            font-weight: bold; /* Ensure headings are bold */
+        }
+
+        p {
+            font-size: 17.5px; /* Font size for paragraphs */
+            line-height: 1.4; /* Slightly increased line height for better readability */
+            margin-bottom: 12px; /* Space below each paragraph */
+        }
+
+        .date {
+            font-style: italic; /* Italicize date */
+            margin-bottom: 16px; /* Space below the date */
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid white; /* White horizontal line style */
+            margin: 20px 0; /* Space around the horizontal line */
+        }
+
+        a {
+            text-decoration: none; /* Remove underline from links */
+            color: inherit; /* Inherit color from parent */
+        }
+    {%endblock%}
+{%block body%}
+    <header>
+        <h1>post</h1>
+    </header>
+    <main>
+        <hr> <!-- White horizontal line before the image -->
+        <img src="{{img}}" alt="Featured Image" class="featured-image">
+        <article>
+            <h2><strong>{{name}}</strong></h2>
+            <p class="date">{{date}} @ {{time}}</p>
+            <p>{{content}}</p>
+        </article>
+        <hr> <!-- White horizontal line after the article -->
+    </main>
+{%endblock%}

@@ -6,6 +6,7 @@ app = Flask(__name__)
 @app.route("/")
 def one():
     posts=getjson()
+    print(posts)
     return render_template("one.html",posts=posts)
 
 @app.route("/new")
