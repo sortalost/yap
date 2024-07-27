@@ -60,10 +60,13 @@
         }
 
         .featured-image {
-            width: 50%; /* Full-width image */
-            height: auto; /* Maintain aspect ratio */
-            margin-bottom: 20px; /* Space below the image */
+            width: 50%; /* Image takes 50% of the container width */
+            height: 50px; /* Fixed height for the image */
+            object-fit: cover; /* Ensure the image covers the area without distortion */
+            margin: 0 auto; /* Center the image horizontally */
+            display: block; /* Ensure image is a block element */
             border-radius: 6px; /* Rounded corners for the image */
+            margin-bottom: 20px; /* Space below the image */
         }
 
         article {

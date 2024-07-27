@@ -6,7 +6,6 @@ app = Flask(__name__)
 @app.route("/")
 def one():
     posts=getjson()
-    print(posts)
     return render_template("one.html",posts=posts)
 
 @app.route("/new")
@@ -21,7 +20,7 @@ def post(num):
         return render_template("404.html")
     return render_template("post.html",name=post["name"],date=post["date"],time=post["time"],content=post["content"],img=post["img"])
 
-@app.errorhandler(400)
+@app.errorhandler(404)
 def notfound(e):
     return render_template("404.html")
 
