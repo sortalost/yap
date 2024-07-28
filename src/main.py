@@ -34,6 +34,7 @@ def notfound(e):
 
 
 def initialize():
+    makefile()
     with open("posts.json","r") as f:
         con = json.load(f)
     with open("/tmp/posts.json","w") as f:

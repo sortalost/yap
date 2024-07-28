@@ -2,9 +2,17 @@ import json
 
 jsfile="/tmp/posts.json"
 
+def makefile():
+    f = open(jsfile,"w")
+    f.write("{}")
+    f.close()
+
 def getjson():
-    with open(jsfile,"r") as f:
-        con = json.load(f)
+    try:
+        with open(jsfile,"r") as f:
+            con = json.load(f)
+    except FileNotFoundError:
+        makefile()
     return con
 
 def getpost(num:str):
