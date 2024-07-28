@@ -1,7 +1,9 @@
 import json
 
+jsfile="/tmp/posts.json"
+
 def getjson():
-    with open("posts.json","r") as f:
+    with open(jsfile,"r") as f:
         con = json.load(f)
     return con
 
@@ -23,6 +25,6 @@ def addpost(name, date, time, content, img):
         "img": img
         }
     })
-    with open("posts.json", "w") as f:
+    with open(jsfile, "w") as f:
         json.dump(con,f,indent=4)
     return num

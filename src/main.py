@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect
 import random
+import json
 from .cogs.utils import *
 from .cogs import api
 
@@ -31,6 +32,15 @@ def rand():
 def notfound(e):
     return render_template("404.html")
 
+
+def initialize():
+    with open("posts.json","r") as f:
+        con = json.load(f)
+    with open("/tmp/posts.json") as f:
+        json.dump(con,f,indent=4)
+    print("done initting")
+
 if __name__=="__main__":
+    initialize()
     app.run("0.0.0.0")
 
