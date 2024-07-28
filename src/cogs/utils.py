@@ -43,6 +43,6 @@ def addpost(name, date, time, content, img):
         }
     res=r.patch(url+gist, headers=headers, params=params, data=json.dumps(payload))
 
-    print(res)
-    return str(res,num)
+    print(res.text)
+    return str(num)
 
