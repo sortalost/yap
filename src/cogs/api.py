@@ -9,7 +9,7 @@ api = Blueprint('api', __name__, url_prefix="/api")
 def docs():
     return render_template("docs.html")
 
-@api.route("/new")
+@api.route("/new",methods=["POST"])
 def new():
     post = request.get_json(force=True)
     name=post.get("name")
