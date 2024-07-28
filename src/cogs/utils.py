@@ -8,10 +8,11 @@ gist="c505d338345f02e3036f851346f8a7a4"
 token=os.getenv("token") 
 headers={'Authorization':'token {}'.format(token)}
 params={'scope':'gist'}
+fn="data.json"
 
 
 def getjson():
-    con = r.get(f"{jsfile}/raw").json()
+    con = r.get(f"{jsfile}/raw/{fn}").json()
     return con
 
 
@@ -38,7 +39,7 @@ def addpost(name, date, time, content, img):
             "description":f"splat dump - {num}",
             "public":True,
             "files":{
-                "data.json":{"content": json.dumps(con)}
+                fn:{"content": json.dumps(con)}
                 }
         }
     res=r.patch(url+gist, headers=headers, params=params, data=json.dumps(payload,indent=4))
