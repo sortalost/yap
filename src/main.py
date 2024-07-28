@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect
 import random
-from cogs.utils import *
+from .cogs.utils import *
 from .cogs import api
 
 
