@@ -1,16 +1,17 @@
 from flask import Flask, render_template
+import random
 from .utils import *
+from .api import api
+
 
 app = Flask(__name__)
+app.register_blueprint(api.api)
 
 @app.route("/")
-def one():
+def index():
     posts=getjson()
-    return render_template("one.html",posts=posts)
+    return render_template("index.html",posts=posts)
 
-@app.route("/new")
-def newpost():
-    return render_template("two.html")
 
 @app.route("/post/<num>")
 def post(num):
@@ -19,6 +20,12 @@ def post(num):
     except:
         return render_template("404.html")
     return render_template("post.html",name=post["name"],date=post["date"],time=post["time"],content=post["content"],img=post["img"])
+
+
+@app.route("/random")
+def rand():
+    postcnt = len(getjson())
+    return redirect(f"/post/{random.choice(range(1,postcnt+1))}")
 
 @app.errorhandler(404)
 def notfound(e):
