@@ -13,8 +13,8 @@ def docs():
 def new():
     post = request.get_json(force=True)
     name=post.get("name")
-    date=post.get("date") or datetime.now.strftime("%B %d, %Y").lower()
-    time=post.get("time") or datetime.now.strftime("%H.%M %p").lower()
+    date=post.get("date") or datetime.now().strftime("%B %d, %Y").lower()
+    time=post.get("time") or datetime.now().strftime("%H.%M %p").lower()
     content=post.get("content")
     img=post.get("img") or "https://random.imagecdn.app/400/210"
     if name is None:
