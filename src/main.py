@@ -36,7 +36,7 @@ def notfound(e):
 def initialize():
     with open("posts.json","r") as f:
         con = json.load(f)
-    with open("/tmp/posts.json") as f:
+    with open("/tmp/posts.json","w") as f:
         json.dump(con,f,indent=4)
     print("done initting")
 
