@@ -3,7 +3,8 @@ import json
 import os
 
 jsfile="https://gist.github.com/v1s1t0r999/e209d7a7c847570b84a2803f22071819/"
-url="https://api.github.com/gists"
+url="https://api.github.com/gists/"
+gist="e209d7a7c847570b84a2803f22071819"
 token=os.getenv("token") 
 headers={'Authorization':'token {}'.format(token)}
 params={'scope':'gist'}
@@ -40,7 +41,7 @@ def addpost(name, date, time, content, img):
                 "json":{"content": con}
                 }
         }
-    res=r.patch(url, headers=headers, params=params, data=json.dumps(payload))
+    res=r.patch(url+gist, headers=headers, params=params, data=json.dumps(payload))
 
     print(res)
     return str(res,num)
