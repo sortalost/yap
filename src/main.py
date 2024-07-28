@@ -8,6 +8,7 @@ from .cogs import api
 app = Flask(__name__)
 app.register_blueprint(api.api)
 
+
 @app.route("/")
 def index():
     posts=getjson()
@@ -33,15 +34,7 @@ def notfound(e):
     return render_template("404.html")
 
 
-def initialize():
-    makefile()
-    with open("posts.json","r") as f:
-        con = json.load(f)
-    with open("/tmp/posts.json","w") as f:
-        json.dump(con,f,indent=4)
-    print("done initting")
 
 if __name__=="__main__":
-    initialize()
     app.run("0.0.0.0")
 
