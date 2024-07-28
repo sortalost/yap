@@ -1,7 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 import random
-from .utils import *
-from .api import api
+from cogs.utils import *
+from .cogs import api
 
 
 app = Flask(__name__)

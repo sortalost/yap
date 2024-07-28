@@ -3,7 +3,7 @@ from flask import request, render_template, redirect, url_for
 from .utils import addpost, getpost, getjson
 from datetime import datetime
 
-api = Blueprint('chat', __name__, url_prefix="/api")
+api = Blueprint('api', __name__, url_prefix="/api")
 
 @api.route("/")
 def docs():
