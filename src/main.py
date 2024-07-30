@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request, session, jsonify, flash
+from werkzeug.exceptions import HTTPException
 import random
 import json
 from datetime import datetime
