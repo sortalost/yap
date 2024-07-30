@@ -47,7 +47,7 @@ def onlypost():
 @app.route("/new",methods=["GET","POST"])
 def addnew():
     if session['logged_in']==False:
-        return "not logged in" #redirect to login
+        return redirect(url_for("login"))
     if request.method=="GET":
         return render_template("new.html",session=session)
     name = request.form["title"]
