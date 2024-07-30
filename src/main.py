@@ -69,7 +69,7 @@ def rand():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if session['logged_in']==True:
-        flash("already logged in")
+        # flash("already logged in")
         return redirect(url_for("index",session=session))
     error = None
     if request.method == 'POST':
@@ -78,14 +78,14 @@ def login():
         else:
             session['logged_in'] = True
             return redirect(url_for('index'))
-    flash(f"logged in, welcome {request.form['username']}")
+    # flash(f"logged in, welcome {request.form['username']}")
     return render_template('login.html', error=error,session=session)
 
 
 @app.route('/logout')
 def logout():
     session.clear()
-    flash("logged out.")
+    # flash("logged out.")
     return redirect(url_for('index'))
 
 
