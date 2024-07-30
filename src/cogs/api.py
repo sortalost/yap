@@ -18,7 +18,7 @@ def new():
         passwd = request.json.get("password")
         if user is None or passwd is None:
             return jsonify(error="not logged in. username and pasword required")
-        elif user != username or passwd != password:
+        elif user != os.getenv("username") or passwd != os.getenv("password"):
             return jsonify(error="not logged in. username or password invalid")
         else:
             session["logged_in"]=True
