@@ -20,7 +20,7 @@ def new():
     date=post.get("date") or datetime.now().strftime("%B %d, %Y").lower()
     time=post.get("time") or datetime.now().strftime("%H.%M %p").lower()
     content=post.get("content")
-    img=post.get("img") or "https://random.imagecdn.app/400/210"
+    img=post.get("img") or "https://random.imagecdn.app/400/250"
     if name is None:
         return {"error":"name field is required"}
     if content is None:
