@@ -130,3 +130,19 @@ a {
     text-decoration: underline overline;
     cursor: pointer;
   }
+
+
+
+.anim {
+    animation:func 2s infinite;
+}
+
+@keyframes func {
+    0% {color:rgb(255, 211, 255);}
+    20% {color:rgb(127, 0, 153);}
+    40% {color:orangered;}
+    60% {color:rgb(0, 152, 163);}
+    80% {color:red;}
+    100%{color:rgb(0, 255, 0)}
+}
+
