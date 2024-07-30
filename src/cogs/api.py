@@ -2,6 +2,7 @@ from flask import Blueprint
 from flask import request, render_template, redirect, url_for, session, jsonify
 from .utils import addpost, getpost, getjson
 from datetime import datetime
+import os
 
 api = Blueprint('api', __name__, url_prefix="/api")
 
