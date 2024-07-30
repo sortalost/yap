@@ -9,9 +9,9 @@
 <main>
     {% for key in posts %}
     <hr> <!-- White horizontal line before the first section -->
-    <a style="text-decoration: underline" href="/post/{{key}}">
+    <a href="/post/{{key}}">
         <section>
-            <h2 style="text-decoration: none;"><strong>{{ posts[key]['num'] }}. {{posts[key]['name']}}</strong></h2>
+            <h2>{{ posts[key]['num'] }}.</h2><h2 style="text-decoration: underline;"><strong> {{posts[key]['name']}}</strong></h2>
             <p>{{posts[key]['date']}}</p>
             <p>{{posts[key]['time']}}</p>
         </section>
