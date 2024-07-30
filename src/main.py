@@ -55,7 +55,7 @@ def addnew():
     time= datetime.now().strftime("%H.%M %p").lower()
     content = request.form["content"]
     img="https://random.imagecdn.app/400/210"
-    num = addpost(name,date,time,content)
+    num = addpost(name,date,time,content,img)
     return redirect(f"/post/{num}")
 
 
