@@ -50,8 +50,8 @@ def addnew():
     if request.method=="GET":
         return render_template("new.html",session=session)
     name = request.form["title"]
-    date=post.get("date") or datetime.now().strftime("%B %d, %Y").lower()
-    time=post.get("time") or datetime.now().strftime("%H.%M %p").lower()
+    date= datetime.now().strftime("%B %d, %Y").lower()
+    time= datetime.now().strftime("%H.%M %p").lower()
     content = request.form["content"]
     img="https://random.imagecdn.app/400/210"
     num = addpost(name,date,time,content)
@@ -74,7 +74,7 @@ def login():
             error = 'Invalid.'
         else:
             session['logged_in'] = True
-            return redirect(url_for('home'))
+            return redirect(url_for('index'))
     return render_template('login.html', error=error,session=session)
 
 
