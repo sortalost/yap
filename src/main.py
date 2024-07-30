@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, session
+from flask import Flask, render_template, redirect, url_for, request, session, jsonify, flash
 import random
 import json
 from datetime import datetime
@@ -14,7 +14,7 @@ username=os.getenv("username")
 password=os.getenv("password")
 
 
-def check_login():
+def check_session():
     if not 'logged_in' in session:
         session["logged_in"]=False
     return session["logged_in"]
@@ -67,8 +67,9 @@ def rand():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if check_login()==True:
-        return "already logged in"
+    if session['logged_in']==True:
+        flash("already logged in")
+        return redirect(url_for("index",session=session))
     error = None
     if request.method == 'POST':
         if request.form['username'] != username or request.form['password'] != password:
@@ -76,23 +77,30 @@ def login():
         else:
             session['logged_in'] = True
             return redirect(url_for('index'))
+    flash(f"logged in, welcome {request.form['username']}")
     return render_template('login.html', error=error,session=session)
 
 
 @app.route('/logout')
 def logout():
     session.clear()
+    flash("logged out.")
     return redirect(url_for('index'))
 
 
-@app.errorhandler(404)
-def notfound(e):
-    return render_template("404.html",session=session)
+
+@app.errorhandler(Exception)
+def handle_error(e):
+    code = 500
+    if isinstance(e, HTTPException):
+        code = e.code
+        if code==404:
+            return render_template("404.html",session=session)
+    return jsonify(error=str(e)), code
 
 @app.before_request
 def b4req():
-    c = check_login()
-    print(c)
+    check_session() #creates session['logged_in'] if doesnt exist
 
 if __name__=="__main__":
     app.run("0.0.0.0")

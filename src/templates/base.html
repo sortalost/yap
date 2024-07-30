@@ -10,6 +10,18 @@
     </style>
 </head>
 <body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div id="flashpopup" class="popup">
+                <div class="popup-content">
+                <span class="close">&times;</span>
+                <p>{{ message }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <div class="top-header">
         <nav>
             <ul>
