@@ -83,7 +83,7 @@ p {
 
 hr {
     border: 0;
-    border-top: 1px solid white; /* White horizontal line style */
+    border-top: 1px solid rgb(145, 145, 145); /* White horizontal line style */
     margin: 10px 0; /* Further reduced space around the horizontal line */
 }
 

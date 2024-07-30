@@ -23,8 +23,8 @@ def check_session():
 
 @app.route("/")
 def index():
-    posts=getjson()
-    return render_template("index.html",posts=posts,session=session)
+    posts=dict(reversed(getjson().items()))
+    return render_template("index.html",posts=posts,session=session,total=len(posts))
 
 
 @app.route("/docs")
@@ -52,12 +52,12 @@ def addnew():
     if request.method=="GET":
         return render_template("new.html",session=session)
     name = request.form["title"]
-    date= datetime.now().strftime("%B %d, %Y").lower()
-    time= datetime.now().strftime("%H.%M %p").lower()
+    date = datetime.now().strftime("%B %d, %Y").lower()
+    time = datetime.now().strftime("%H.%M %p").lower()
     content = request.form["content"]
-    img="https://random.imagecdn.app/400/210"
+    img = "https://random.imagecdn.app/400/210"
     num = addpost(name,date,time,content,img)
-    return redirect(f"/post/{num}")
+    return redirect(url_for("index"))
 
 
 @app.route("/random")
