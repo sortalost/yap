@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request, session
 import random
 import json
-from datetime import dateime
+from datetime import datetime
 import os
 from .cogs.utils import *
 from .cogs import api
