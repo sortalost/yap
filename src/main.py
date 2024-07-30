@@ -25,7 +25,10 @@ def check_session():
 def index():
     posts=dict(reversed(getjson().items()))
     joke = getjoke().replace("Chuck","").replace("Norris","|").split("|")
-    return render_template("index.html",posts=posts,session=session,total=len(posts),jokestart=joke[0],jokeend=joke[1])
+    try:
+        return render_template("index.html",posts=posts,session=session,total=len(posts),jokestart=joke[0],jokeend=joke[1])
+    except:
+        return render_template("index.html",posts=posts,session=session,total=len(posts),jokestart=joke,jokeend=joke)
 
 
 @app.route("/docs")
