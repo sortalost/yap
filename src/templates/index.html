@@ -11,7 +11,9 @@
     <hr> <!-- White horizontal line before the first section -->
     <a href="/post/{{key}}">
         <section>
-            <h2>{{ posts[key]['num'] }}.</h2><h2 style="text-decoration: underline;"><strong> {{posts[key]['name']}}</strong></h2>
+            <h2>
+                <strong>{{ posts[key]['num'] }}. <span style="text-decoration: underline;">{{posts[key]['name']}}</span></strong>
+            </h2>
             <p>{{posts[key]['date']}}</p>
             <p>{{posts[key]['time']}}</p>
         </section>
