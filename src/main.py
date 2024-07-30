@@ -13,6 +13,7 @@ app.secret_key = os.getenv("secretkey")
 app.register_blueprint(api.api)
 username=os.getenv("username")
 password=os.getenv("password")
+thename="Voldemort"
 
 
 def check_session():
@@ -28,7 +29,7 @@ def index():
     try:
         return render_template("index.html",posts=posts,session=session,total=len(posts),jokestart=joke[0],jokeend=joke[1])
     except:
-        return render_template("index.html",posts=posts,session=session,total=len(posts),jokestart=joke,jokeend=joke)
+        return render_template("index.html",posts=posts,session=session,total=len(posts),jokestart=joke,jokeend=joke,name=thename)
 
 
 @app.route("/docs")
