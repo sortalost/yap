@@ -24,7 +24,7 @@ def index():
     return render_template("index.html",posts=posts,session=session)
 
 
-@api.route("/docs")
+@app.route("/docs")
 def docs():
     return render_template("docs.html",session=session)
 
