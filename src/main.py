@@ -25,7 +25,7 @@ def check_session():
 def index():
     posts=dict(reversed(getjson().items()))
     joke = getjoke().replace("chuck","").replace("norris","|").split("|")
-    return render_template("index.html",posts=posts,session=session,total=len(posts),jokestart=joke[0],jokeend=joke[1])
+    return render_template("index.html",posts=posts,session=session,total=len(posts),jokestart=str(joke),jokeend=str(joke))
 
 
 @app.route("/docs")
