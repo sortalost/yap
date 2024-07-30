@@ -134,7 +134,7 @@ a {
 
 
 .anim {
-    animation:func 2s infinite;
+    animation:func 4s infinite;
 }
 
 @keyframes func {
