@@ -46,3 +46,9 @@ def addpost(name, date, time, content, img):
 
     print(res.text)
     return str(num)
+
+
+def getjoke():
+    con = r.get("https://api.chucknorris.io/jokes/random").json()
+    joke = con['value']
+    return joke
