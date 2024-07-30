@@ -4,12 +4,13 @@
 
 {%block body%}
 {% if session['logged_in'] %}
-<div class="formContainer chat-form">
+<div style="text-align: center;">
   <form method=POST>
   <br>
   Post Title:
-  <input type="text" required id="title" name="title" placeholder="Post Title"> 
-  <textarea required name="content" rows=10 cols=100></textarea>
+  <input type="text" required id="title" name="title" placeholder="Post Title">
+  <br>
+  <textarea placeholder="write here..." required name="content" rows=10 cols=55></textarea>
   <input type=submit value=done>
   </form>
 </div>
