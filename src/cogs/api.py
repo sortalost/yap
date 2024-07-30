@@ -6,6 +6,11 @@ from datetime import datetime
 api = Blueprint('api', __name__, url_prefix="/api")
 
 
+@api.route("/")
+def apindex():
+    return redirect(url_for("docs"))
+
+
 @api.route("/new",methods=["POST"])
 def new():
     if session['logged_in'] is False:
