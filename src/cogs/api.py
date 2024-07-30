@@ -5,9 +5,6 @@ from datetime import datetime
 
 api = Blueprint('api', __name__, url_prefix="/api")
 
-@api.route("/")
-def docs():
-    return render_template("docs.html")
 
 @api.route("/new",methods=["POST"])
 def new():

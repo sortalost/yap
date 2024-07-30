@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{%block title%}new{%endblock%}
+
+{%block body%}
+{% if session['logged_in'] %}
+<div class="formContainer chat-form">
+  <form method=POST>
+  <br>
+  Post Title:
+  <input type="text" required id="title" name="title" placeholder="Post Title"> 
+  <textarea required name="content" rows=10 cols=100></textarea>
+  <input type=submit value=done>
+  </form>
+</div>
+{% endif %} 
+{%endblock%}
