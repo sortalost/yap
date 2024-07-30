@@ -7,7 +7,7 @@ from .cogs import api
 
 
 app = Flask(__name__)
-app.secret_key("smd")
+app.secret_key ="smd"
 app.register_blueprint(api.api)
 username=os.getenv("username")
 password=os.getenv("password")
