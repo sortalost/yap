@@ -8,41 +8,41 @@ gist="c505d338345f02e3036f851346f8a7a4"
 token=os.getenv("token") 
 headers={'Authorization':'token {}'.format(token)}
 params={'scope':'gist'}
+fn="data.json"
 
 
-def getpost(fn="1"):
+def getjson():
     con = r.get(f"{jsfile}/raw/{fn}").json()
     return con
 
-def gistfiles():
-    try:
-        res = r.get(url+gist).json()
-        file_count = len(res.get('files', {}))
-        return file_count
-    except requests.exceptions.RequestException as e:
-        print(f"An error occurred: {e}")
-        return None
+
+def getpost(num:str):
+    con = getjson()
+    post = con[num]
+    return post
 
 
 def addpost(name, date, time, content, img):
-    num = str(gistfiles()+1)
-    con = {
+    con = getjson()
+    num = str(len(con)+1)
+    con.update({num:
+        {
         "num":num,
         "name":name,
         "date":date,
         "time":time,
         "content":content,
         "img": img
-    }
+        }
+    })
     payload={
             "description":f"splat dump - {num}",
             "public":True,
             "files":{
-                num:{"content": json.dumps(con)}
+                fn:{"content": json.dumps(con)}
                 }
         }
     res=r.patch(url+gist, headers=headers, params=params, data=json.dumps(payload,indent=4))
 
     print(res.text)
     return str(num)
-
