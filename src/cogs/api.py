@@ -1,5 +1,5 @@
 from flask import Blueprint
-from flask import request, render_template, redirect, url_for
+from flask import request, render_template, redirect, url_for, session
 from .utils import addpost, getpost, getjson
 from datetime import datetime
 
@@ -8,6 +8,8 @@ api = Blueprint('api', __name__, url_prefix="/api")
 
 @api.route("/new",methods=["POST"])
 def new():
+    if session['logged_in'] is False:
+        return {"error":"log in to access. check your environment variable in vercel"}
     post = request.get_json(force=True)
     name=post.get("name")
     date=post.get("date") or datetime.now().strftime("%B %d, %Y").lower()
