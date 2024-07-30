@@ -1,13 +1,14 @@
 from flask import Flask, render_template, redirect, url_for, request, session
 import random
 import json
+import datetime
 import os
 from .cogs.utils import *
 from .cogs import api
 
 
 app = Flask(__name__)
-app.secret_key ="smd"
+app.secret_key = os.getenv("secretkey")
 app.register_blueprint(api.api)
 username=os.getenv("username")
 password=os.getenv("password")
