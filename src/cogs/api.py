@@ -13,8 +13,15 @@ def apindex():
 
 @api.route("/new",methods=["POST"])
 def new():
-    if session['logged_in'] is False:
-        return {"error":"log in to access. check your environment variable in vercel"}
+    if session["logged_in"]==False:
+        user = request.json.get("username")
+        passwd = request.json.get("password")
+        if user is None or passwd is None:
+            return jsonify(error="not logged in. username and pasword required")
+        elif user != username or passwd != password:
+            return jsonify(error="not logged in. username or password invalid")
+        else:
+            session["logged_in"]=True
     post = request.get_json(force=True)
     name=post.get("name")
     date=post.get("date") or datetime.now().strftime("%B %d, %Y").lower()
