@@ -2,6 +2,8 @@
 
 {%block title%}new{%endblock%}
 
+{%block head %}<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">{%endblock%}
+
 {%block body%}
 {% if session['logged_in'] %}
 <div style="text-align: center;">
@@ -14,5 +16,9 @@
   <input type=submit value=done>
   </form>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+<script>
+  const easyMDE = new EasyMDE();
+</script>
 {% endif %} 
 {%endblock%}
