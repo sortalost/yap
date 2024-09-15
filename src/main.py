@@ -57,6 +57,7 @@ def addnew():
     if request.method=="GET":
         return render_template("new.html",session=session)
     name = request.form["title"]
+    print(request.form.get("dateField"), request.form.get("timeField"))
     date = request.form['dateField']
     time = request.form['timeField']
     content = request.form["content"]
