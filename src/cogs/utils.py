@@ -39,7 +39,7 @@ def addpost(name, date, time, content, img):
             "description":f"splat dump - {num}",
             "public":True,
             "files":{
-                fn:{"content": json.dumps(con)}
+                fn:{"content": json.dumps(con,indent=4)}
                 }
         }
     res=r.patch(url+gist, headers=headers, params=params, data=json.dumps(payload,indent=4))
