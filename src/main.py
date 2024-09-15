@@ -57,8 +57,8 @@ def addnew():
     if request.method=="GET":
         return render_template("new.html",session=session)
     name = request.form["title"]
-    date = datetime.now().strftime("%B %d, %Y").lower()
-    time = datetime.now().strftime("%H.%M %p").lower()
+    date = request.form['dateField']
+    time = request.form['timeField']
     content = request.form["content"]
     img = "https://random.imagecdn.app/400/250"
     num = addpost(name,date,time,content,img)

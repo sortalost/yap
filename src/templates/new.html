@@ -13,6 +13,8 @@
   <br><br>
   <textarea style="text-align: left !important;" placeholder="write here..." required name="content" rows=10 cols=55></textarea>
   <br><br>
+  <input type="hidden" id="dateTimeField" name="dateTimeField" />
+  <input type="hidden" id="timeField" name="timeField" />
   <button onclick="postForm()" type="button">donee</button>
   </form>
 </div>
@@ -20,6 +22,22 @@
 <script>
   const easyMDE = new EasyMDE();
   function postForm(){
+    var currentDateTime = new Date();
+    var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var month = monthNames[currentDateTime.getMonth()];
+    var day = currentDateTime.getDate();
+    var year = currentDateTime.getFullYear();
+    var dateTimeString = `${month} ${day}, ${year}`.toLowerCase();
+    var hours = currentDateTime.getHours();
+    var minutes = currentDateTime.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? `0${minutes}` : minutes;
+    var timeString = `${hours}.${minutes} ${ampm}`.toLowerCase();
+    
+    document.getElementById("dateField").value = dateTimeString;
+    document.getElementById("timeField").value = timeString;
     document.getElementById("newform").submit()
   }
 </script>
