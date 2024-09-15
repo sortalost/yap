@@ -7,18 +7,21 @@
 {%block body%}
 {% if session['logged_in'] %}
 <div style="text-align: center;">
-  <form method=POST>
+  <form id="newform" method=POST>
   <br>
   <input type="text" required id="title" name="title" placeholder="Post Title">
   <br><br>
   <textarea placeholder="write here..." required name="content" rows=10 cols=55></textarea>
   <br><br>
-  <button type="button">donee</button>
+  <button onclick="postForm()" type="button">donee</button>
   </form>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
 <script>
   const easyMDE = new EasyMDE();
+  function postForm(){
+    document.getElementById("newform").submit()
+  }
 </script>
 {% endif %} 
 {%endblock%}
