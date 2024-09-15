@@ -13,7 +13,7 @@
   <br><br>
   <textarea style="text-align: left !important;" placeholder="write here..." required name="content" rows=10 cols=55></textarea>
   <br><br>
-  <input type="hidden" id="dateField" name="dateTimeField" />
+  <input type="hidden" id="dateField" name="dateField" />
   <input type="hidden" id="timeField" name="timeField" />
   <button onclick="postForm()" type="button">donee</button>
   </form>
@@ -27,7 +27,7 @@
     var month = monthNames[currentDateTime.getMonth()];
     var day = currentDateTime.getDate();
     var year = currentDateTime.getFullYear();
-    var dateTimeString = `${month} ${day}, ${year}`.toLowerCase();
+    var dateString = `${month} ${day}, ${year}`.toLowerCase();
     var hours = currentDateTime.getHours();
     var minutes = currentDateTime.getMinutes();
     var ampm = hours >= 12 ? 'pm' : 'am';
@@ -36,7 +36,7 @@
     minutes = minutes < 10 ? `0${minutes}` : minutes;
     var timeString = `${hours}.${minutes} ${ampm}`.toLowerCase();
     
-    document.getElementById("dateField").value = dateTimeString;
+    document.getElementById("dateField").value = dateString;
     document.getElementById("timeField").value = timeString;
     document.getElementById("newform").submit()
   }
