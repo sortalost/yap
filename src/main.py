@@ -94,6 +94,10 @@ def logout():
     # flash("logged out.")
     return redirect(url_for('index'))
 
+@app.route("/del")
+def delete():
+    return "use `/api/del?id=<POST_ID>`"
+
 
 
 @app.errorhandler(Exception)

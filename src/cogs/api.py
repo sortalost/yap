@@ -1,6 +1,6 @@
 from flask import Blueprint
 from flask import request, render_template, redirect, url_for, session, jsonify
-from .utils import addpost, getpost, getjson
+from .utils import addpost, getpost, getjson, delpost
 from datetime import datetime
 import os
 
@@ -36,6 +36,7 @@ def new():
     num = addpost(name, date, time, content, img)
     return {"id":num}
 
+
 @api.route("/get")
 def get():
     num = request.args.get("id")
@@ -43,3 +44,14 @@ def get():
         return getjson()
     return getpost(num)
 
+
+@api.route("/del")
+def _del():
+    num = request.args.get("id")
+    if num is None:
+        return jsonify(error="`id` is required")
+    con = delpost(num)
+    if isinstance(con,bool):
+        return jsonify(error=f"no such `id={num}` exists")
+    return jsonify(message=f"This entry of `id={num}` has been deleted", con=con)
+    

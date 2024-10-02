@@ -43,9 +43,16 @@ def addpost(name, date, time, content, img):
                 }
         }
     res=r.patch(url+gist, headers=headers, params=params, data=json.dumps(payload,indent=4))
-
-    print(res.text)
     return str(num)
+
+
+def delpost(num):
+    num = str(num)
+    data = getjson()
+    try:
+        return data.pop(num)
+    except KeyError:
+        return False
 
 
 def getjoke():
