@@ -57,7 +57,7 @@ def delpost(num):
             "description":f"splat dump - {int(num)-1}",
             "public":True,
             "files":{
-                fn:{"content": json.dumps(con,indent=4)}
+                fn:{"content": json.dumps(data,indent=4)}
                 }
         }
     res=r.patch(url+gist, headers=headers, params=params, data=json.dumps(payload,indent=4))
