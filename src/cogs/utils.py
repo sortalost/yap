@@ -50,9 +50,18 @@ def delpost(num):
     num = str(num)
     data = getjson()
     try:
-        return data.pop(num)
+        con = data.pop(num)
     except KeyError:
         return False
+    payload={
+            "description":f"splat dump - {int(num)-1}",
+            "public":True,
+            "files":{
+                fn:{"content": json.dumps(con,indent=4)}
+                }
+        }
+    res=r.patch(url+gist, headers=headers, params=params, data=json.dumps(payload,indent=4))
+    return con
 
 
 def getjoke():
