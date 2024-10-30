@@ -101,14 +101,14 @@ def delete():
 
 
 
-# @app.errorhandler(Exception)
-# def handle_error(e):
-#     code = 500
-#     if isinstance(e, HTTPException):
-#         code = e.code
-#         if code==404:
-#             return render_template("404.html",session=session)
-#     return jsonify(error=str(e)), code
+@app.errorhandler(Exception)
+def handle_error(e):
+    code = 500
+    if isinstance(e, HTTPException):
+        code = e.code
+        if code==404:
+            return render_template("404.html",session=session)
+    return jsonify(error=str(e)), code
 
 @app.before_request
 def b4req():

@@ -13,7 +13,6 @@ fn="data.json"
 
 def getjson():
     con = r.get(f"{jsfile}/raw/{fn}")
-    print(con)
     return con.json()
 
 
