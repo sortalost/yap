@@ -12,8 +12,9 @@ fn="data.json"
 
 
 def getjson():
-    con = r.get(f"{jsfile}/raw/{fn}").json()
-    return con
+    con = r.get(f"{jsfile}/raw/{fn}")
+    print(con)
+    return con.json()
 
 
 def getpost(num:str):
