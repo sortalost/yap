@@ -2,9 +2,9 @@
 
 ### main
 - <s>see posts</s>
-- <s>add new page to accept new posts</s>
+- <s>`new` logic</s>
 
 ### api
 (_in blueprint_)
-- <s>api route to get, add</s>
-- delete logic has to be improved
+- <s>api route to `get`, `new`</s>
+- `del` logic has to be improved
