@@ -19,7 +19,7 @@
     </div>
     {% else %}
     {% for key in posts %}
-    <hr> <!-- White horizontal line before the first section -->
+    <hr>
     <a href="/post/{{key}}">
         <section>
             <h2>
@@ -31,6 +31,6 @@
     </a>
     {%endfor%}
     {% endif %}
-    <hr> <!-- White horizontal line after the last section -->
+    <hr>
 </main>
 {%endblock%}

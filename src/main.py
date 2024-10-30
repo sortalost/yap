@@ -25,6 +25,7 @@ def check_session():
 @app.route("/")
 def index():
     posts=dict(reversed(getjson().items()))
+    # need to make a better logic to add styles to chuck norris
     joke = getjoke().replace("Chuck","").replace("Norris","|").split("|")
     try:
         return render_template("index.html",posts=posts,session=session,total=len(posts),jokestart=joke[0],jokeend=joke[1])

@@ -36,8 +36,8 @@ def addpost(name, date, time, content, img):
         }
     })
     payload={
-            "description":f"splat dump - {num}",
-            "public":True,
+            "description":f"yap dump - {num}",
+            "public":False,
             "files":{
                 fn:{"content": json.dumps(con,indent=4)}
                 }
@@ -54,8 +54,8 @@ def delpost(num):
     except KeyError:
         return False
     payload={
-            "description":f"splat dump - {int(num)-1}",
-            "public":True,
+            "description":f"yap dump - {int(num)-1}",
+            "public":False,
             "files":{
                 fn:{"content": json.dumps(data,indent=4)}
                 }

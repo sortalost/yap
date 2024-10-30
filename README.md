@@ -1,4 +1,4 @@
-## splat
+## yap
 DONE see posts
 add new page to accept new posts
 
