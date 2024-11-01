@@ -16,7 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
         let themePath;
         switch (theme) {
             case "cherry":
-                themePath = "/static/css/cherry.css?";
+                themePath = "/static/css/cherry.css?v1";
+                break;
+            case "cherryb":
+                themePath = "/static/css/cherryb.css";
                 break;
             case "black":
             default:
