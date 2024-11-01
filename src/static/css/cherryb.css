@@ -72,11 +72,11 @@ section {
     border: 1px solid #534145; /* Light pink border */
     border-radius: 6px;
     transition: background-color 0.3s, border-color 0.3s;
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white to layer over floral background */
+    background-color: rgba(104, 73, 73, 0.9); /* Semi-transparent white to layer over floral background */
 }
 
 section:hover {
-    background-color: #ff95a5; /* Light pastel pink on hover */
+    background-color: #ff97a694; /* Light pastel pink on hover */
     border-color: #f8cdd4; /* Darker pink border on hover */
     cursor: pointer;
 }

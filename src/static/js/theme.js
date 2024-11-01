@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 themePath = "/static/css/cherry.css?v1";
                 break;
             case "cherryb":
-                themePath = "/static/css/cherryb.css?v1";
+                themePath = "/static/css/cherryb.css?v2";
                 break;
             case "black":
             default:
