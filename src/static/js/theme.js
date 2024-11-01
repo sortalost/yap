@@ -16,11 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
         let themePath;
         switch (theme) {
             case "cherry":
-                themePath = "{{ url_for('static', filename='css/cherry.css') }}";
+                themePath = "/static/css/cherry.css";
                 break;
             case "black":
             default:
-                themePath = "{{ url_for('static', filename='css/black.css') }}";
+                themePath = "/static/css/black.css";
         }
 
         themeStylesheet.setAttribute("href", themePath);

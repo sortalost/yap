@@ -6,7 +6,7 @@
     <title>yo! | {% block title %}{% endblock %}</title>
     <link id="theme-stylesheet" rel="stylesheet" href="/static/css/black.css"> <!-- Default Theme -->
     <script type="module" src="https://md-block.verou.me/md-block.js"></script>
-    <script src="{{ url_for('static', filename='js/theme.js') }}" defer></script> <!-- Include your JS file -->
+    <script src="/static/js/theme.js?v1" defer></script> <!-- Include your JS file -->
     {% block head %}{% endblock %}
     <style>
     {% block style %}
