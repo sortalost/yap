@@ -12,7 +12,7 @@ body {
     padding: 20px 12%;
     
     /* Add floral motif as a background image */
-    background-image: url('your-floral-motif.png'); /* Replace with your floral image URL */
+    background-image: url('/static/images/cherry.avif'); /* Replace with your floral image URL */
     background-repeat: repeat; /* Repeat pattern */
     background-size: 200px 200px; /* Adjust size as needed for subtle effect */
     background-blend-mode: multiply; /* Blend with background color for softer effect */
